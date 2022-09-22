@@ -51,9 +51,36 @@ btnsub.addEventListener('click', function(e) {
     }
     if(inputCPF.value.length === 14 && textname.value.length !== 0) {
         let CPF = inputCPF.value;
+
         let CPFclean = String(CPF.replace(/\D+/g, ''));
 
-        if (CPFclean.length === 11) {
+        const positive = () => {
+            resp.style.display = 'block';
+            resp.innerHTML = `Olá ${textname.value} este CPF é válido!`;
+            let img = document.createElement('img');
+            resp.appendChild(img)
+            img.src = "image/correctt.png";
+        }
+
+        const negative = () => {
+            resp.style.display = 'block';
+            resp.innerHTML = `Olá ${textname.value} este CPF não é válido!`;
+            let img = document.createElement('img');
+            resp.appendChild(img)
+            img.src = "image/wrong.png";
+        }
+
+        if (CPFclean.length === 11 
+            && CPFclean !== '00000000000'
+            && CPFclean !== '11111111111'
+            && CPFclean !== '22222222222'
+            && CPFclean !== '33333333333'
+            && CPFclean !== '44444444444'
+            && CPFclean !== '55555555555'
+            && CPFclean !== '66666666666'
+            && CPFclean !== '77777777777'
+            && CPFclean !== '88888888888'
+            && CPFclean !== '99999999999') {
 
             let cpfArray = Array.from(CPFclean);
 
@@ -88,27 +115,12 @@ btnsub.addEventListener('click', function(e) {
             let two2 = cpfArray.splice(-2, 2);
 
             if (two[0] === two2[0] && two[1] == two2[1]) {
-                resp.style.display = 'block';
-                resp.innerHTML = `Olá ${textname.value} este CPF é válido!`;
-                let img = document.createElement('img');
-                resp.appendChild(img)
-                img.src = "image/correctt.png";
-
+                positive();
             } else {
-                resp.style.display = 'block';
-                resp.innerHTML = `Olá ${textname.value} este CPF não é válido!`;
-                let img = document.createElement('img');
-                resp.appendChild(img)
-                img.src = "image/wrong.png";
+                negative();
             }
-
         } else {
-            resp.style.display = 'block';
-            resp.innerHTML = `Olá ${textname.value} este CPF não é válido!`;
-            let img = document.createElement('img');
-            resp.appendChild(img)
-            img.src = "image/wrong.png";
+            negative();
         }
-
     }
 });
