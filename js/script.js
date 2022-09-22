@@ -4,7 +4,6 @@ const textname = document.querySelector('#textname');
 const resp = document.querySelector('.resp');
 const img = document.querySelector('.img')
 
-// Travamento de teclas input CPF
 let goodKey = '0123456789-.';
 
 var checkInputCPF = function(e) {
@@ -24,8 +23,6 @@ var filterInput = function(val) {
 }
 
 inputCPF.addEventListener('input', checkInputCPF);
-
-// InputCPF
 
 inputCPF.addEventListener('keyup', function(e) {
     let point = '.';
@@ -58,9 +55,9 @@ btnsub.addEventListener('click', function(e) {
 
         if (CPFclean.length === 11) {
 
-            let cpfArray = Array.from(CPFclean);// calcular
+            let cpfArray = Array.from(CPFclean);
 
-            let two = cpfArray.splice(-2, 2);// comparar
+            let two = cpfArray.splice(-2, 2);
 
             let num1 = 10;
 
@@ -114,9 +111,4 @@ btnsub.addEventListener('click', function(e) {
         }
 
     }
-// 0  1 2 3 4 5 6 7 8 9 10
-
-// 0  7 7 8 0 0 7 3 9 1 2 
-// 10 9 8 7 6 5 4 3 2 
-
 });
