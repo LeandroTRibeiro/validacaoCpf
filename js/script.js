@@ -96,7 +96,7 @@ btnsub.addEventListener('click', function(e) {
             }, 0);
 
             soma1 = 11 - (soma1 % 11);
-            if (soma1 > 9) soma1 = 9;
+            if (soma1 > 9) soma1 = 0;
             cpfArray.push(String(soma1));
             
             let num2 = 11;
@@ -109,7 +109,7 @@ btnsub.addEventListener('click', function(e) {
             }, 0);
 
             soma2 = 11 - (soma2 % 11);
-            if (soma2 > 9) soma2 = 9;
+            if (soma2 > 9) soma2 = 0;
             cpfArray.push(String(soma2));
             
             let two2 = cpfArray.splice(-2, 2);
